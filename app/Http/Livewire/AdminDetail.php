@@ -30,7 +30,8 @@ class AdminDetail extends Component
         ]);
 
         $nama_gambar = $this->nama . "." . $this->gambar->extension();
-        $this->gambar->move(public_path('assets/jersey'), $nama_gambar);
+        // $this->gambar->move(public_path('assets/jersey'), $nama_gambar);
+        $this->gambar->store('photos');
     }
 
     public function render()
