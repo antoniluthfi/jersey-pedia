@@ -2,7 +2,7 @@
 
     {{-- banner --}}
     <div class="banner">
-        <img src="{{ url('storage/assets/slider/slider1.png') }}" alt="slider">
+        <img src="{{ url('assets/slider/slider1.png') }}" alt="slider">
     </div>
 
     {{-- pilih liga --}}
@@ -15,7 +15,7 @@
                     <a href="{{ route('product.liga', $liga->id) }}">
                         <div class="card shadow">
                             <div class="card-body text-center">
-                                <img src="{{ url('storage/assets/liga') }}/{{ $liga->gambar }}" alt="{{ $liga->gambar }}" class="img-fluid">
+                                <img src="{{ url('assets/liga') }}/{{ $liga->gambar }}" alt="{{ $liga->gambar }}" class="img-fluid">
                             </div>
                         </div>
                     </a>
@@ -37,7 +37,7 @@
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
-                            <img src="{{ url('storage/assets/jersey') }}/{{ $product->gambar }}" alt="{{ $product->gambar }}" class="img-fluid">
+                            <img src="{{ url('assets/jersey') }}/{{ $product->gambar }}" alt="{{ $product->gambar }}" class="img-fluid">
                         
                             <div class="row mt-2">
                                 <div class="col-md-12">

@@ -42,7 +42,7 @@
                             <tr>
                                 <td class="text-center">{{ $no++ }}</td>
                                 <td class="text-center">
-                                    <img src="{{ url('storage/assets/jersey') }}/{{ $pesanan_detail->product->gambar }}" alt="{{ $pesanan_detail->product->gambar }}" width="100">
+                                    <img src="{{ url('assets/jersey') }}/{{ $pesanan_detail->product->gambar }}" alt="{{ $pesanan_detail->product->gambar }}" width="100">
                                 </td>
                                 <td class="text-center">{{ $pesanan_detail->product->nama }}</td>
                                 <td @if (!$pesanan_detail->nameset) class="text-center" @endif>
