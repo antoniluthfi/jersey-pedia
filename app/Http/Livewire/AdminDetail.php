@@ -29,7 +29,8 @@ class AdminDetail extends Component
             'gambar' => 'image|max:2048', 
         ]);
 
-        Storage::disk('public')->putFileAs('assets/jersey', $this->gambar, $this->nama . "." . $this->gambar->extension());
+        $nama_gambar = $this->nama . "." . $this->gambar->extension();
+        Storage::disk('public')->putFileAs('assets/jersey', $this->gambar, $nama_gambar);
     }
 
     public function render()
