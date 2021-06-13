@@ -12,7 +12,7 @@ class Admin extends Component
 {
     use WithPagination;
 
-    public $search;
+    public $search, $product_id;
     protected $queryString = ['search'];
     protected $paginationTheme = 'bootstrap';
 
@@ -26,6 +26,24 @@ class Admin extends Component
     public function updatingSearch()
     {
         $this->resetPage();
+    }
+
+    public function masukkanID($id)
+    {
+        $this->product_id = $id;
+    }
+
+    public function hapusProduk($id) 
+    {
+        $product = Product::find($id);
+        if($product) {
+            $product->delete();
+
+            // remove image
+            $nama_gambar_lama = explode('/', $product->gambar);
+            $nama_gambar_lama = end($nama_gambar_lama);       
+            unlink(public_path('/storage/photos/' . $nama_gambar_lama)); 
+        }
     }
 
     public function render()

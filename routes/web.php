@@ -10,6 +10,7 @@ use App\Http\Livewire\Checkout;
 use App\Http\Livewire\History;
 use App\Http\Livewire\Admin;
 use App\Http\Livewire\AdminDetail;
+use App\Http\Livewire\AdminEditDetail;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,4 @@ Route::get('/checkout', Checkout::class)->name('checkout');
 Route::get('/history', History::class)->name('history');
 Route::get('/admin', Admin::class)->name('admin');
 Route::get('/admin-detail', AdminDetail::class)->name('admin.detail');
+Route::get('/admin-edit-detail/{id}', AdminEditDetail::class)->name('admin.edit.detail');

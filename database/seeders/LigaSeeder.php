@@ -14,28 +14,30 @@ class LigaSeeder extends Seeder
      */
     public function run()
     {
+        $file_path = 'http://127.0.0.1:8000/assets/liga/';
+
         DB::table('ligas')->insert([
         	'nama' => 'Bundes Liga',
         	'negara' => 'Jerman',
-        	'gambar' => 'bundesliga.png',
+        	'gambar' => $file_path . 'bundesliga.png',
         ]);
 
         DB::table('ligas')->insert([
         	'nama' => 'Premier League',
         	'negara' => 'Inggris',
-        	'gambar' => 'premierleague.png',
+        	'gambar' => $file_path . 'premierleague.png',
         ]);
 
         DB::table('ligas')->insert([
         	'nama' => 'La Liga',
         	'negara' => 'Spanyol',
-        	'gambar' => 'laliga.png',
+        	'gambar' => $file_path . 'laliga.png',
         ]);
 
         DB::table('ligas')->insert([
         	'nama' => 'Serie A',
         	'negara' => 'Itali',
-        	'gambar' => 'seriea.png',
+        	'gambar' => $file_path . 'seriea.png',
         ]);
     }
 }

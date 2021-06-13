@@ -15,7 +15,7 @@
                     <a href="{{ route('product.liga', $liga->id) }}">
                         <div class="card shadow">
                             <div class="card-body text-center">
-                                <img src="{{ url('assets/liga') }}/{{ $liga->gambar }}" alt="{{ $liga->gambar }}" class="img-fluid">
+                                <img src="{{ $liga->gambar }}" alt="{{ $liga->gambar }}" class="img-fluid">
                             </div>
                         </div>
                     </a>
@@ -37,7 +37,7 @@
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
-                            <img src="{{ url('assets/jersey') }}/{{ $product->gambar }}" alt="{{ $product->gambar }}" class="img-fluid">
+                            <img src="{{ $product->gambar }}" alt="{{ $product->gambar }}" class="img-fluid">
                         
                             <div class="row mt-2">
                                 <div class="col-md-12">

@@ -48,7 +48,7 @@
                                     @endphp
                                     
                                     @foreach ($pesanan_details as $pesanan_detail)
-                                        <img src="{{ url('assets/jersey') }}/{{ $pesanan_detail->product->gambar }}" alt="{{ $pesanan_detail->product->gambar }}" width="50">
+                                        <img src="{{ $pesanan_detail->product->gambar }}" alt="{{ $pesanan_detail->product->gambar }}" width="50">
                                         {{ $pesanan_detail->product->nama }}
                                         <br>
                                     @endforeach

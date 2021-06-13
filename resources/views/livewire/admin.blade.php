@@ -46,7 +46,7 @@
                 <div class="col-md-3 mb-3">
                     <div class="card">
                         <div class="card-body text-center">
-                            <img src="{{ url('assets/jersey') }}/{{ $product->gambar }}" alt="{{ $product->gambar }}" class="img-fluid">
+                            <img src="{{ $product->gambar }}" alt="{{ $product->gambar }}" class="img-fluid">
                         
                             <div class="row mt-2">
                                 <div class="col-md-12">
@@ -56,14 +56,42 @@
                             </div>
 
                             <div class="row mt-2">
-                                <div class="col-md-12">
-                                    <a href="{{ route('product.detail', $product->id) }}" class="btn btn-dark btn-block"><i class="fas fa-eye"></i> Detail</a>
+                                <div class="col-md-6">
+                                    <a href="{{ route('admin.edit.detail', $product->id) }}" class="btn btn-dark btn-block"><i class="fas fa-eye"></i> Edit</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <button wire:click="masukkanID({{ $product->id }})" type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#delete">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>                    
             @endforeach
+        </div>
+
+        {{-- delete modal --}}
+        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Peringatan!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <h6><strong>Produk ini akan terhapus secara permanen. Anda yakin?</strong></h6>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Gak jadi deh</button>
+                        <button wire:click="hapusProduk({{ $product_id }})" type="button" class="btn btn-danger" data-dismiss="modal">Ya, hapus saja!</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="row">

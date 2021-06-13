@@ -6,13 +6,13 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use App\Models\Liga;
 use Livewire\WithFileUploads;
-use Illuminate\Support\Facades\Storage;
+use App\Models\Product;
 
 class AdminDetail extends Component
 {
     use WithFileUploads;
 
-    public $ligas, $nama = 'test', $gambar;
+    public $ligas, $nama, $harga_satuan, $harga_nameset, $liga, $is_ready, $berat, $gambar;
 
     public function mount()
     {
@@ -26,12 +26,29 @@ class AdminDetail extends Component
     public function tambahProduk()
     {
         $this->validate([
+            'nama' => 'required',
+            'harga_satuan' => 'required',
+            'harga_nameset' => 'required',
+            'liga' => 'required',
+            'berat' => 'required',
             'gambar' => 'image|max:2048', 
         ]);
 
-        $nama_gambar = $this->nama . "." . $this->gambar->extension();
-        // $this->gambar->move(public_path('assets/jersey'), $nama_gambar);
-        $this->gambar->store('photos');
+        $file = \Storage::disk('public')->put('photos', $this->gambar);
+        $protocol = current(explode('/',$_SERVER['SERVER_PROTOCOL']));
+        $file_path = strtolower($protocol) . '://' . $_SERVER['HTTP_HOST'] . '/storage/' . $file;
+
+        Product::create([
+            'nama' => strtoupper($this->nama),
+            'harga' => $this->harga_satuan,
+            'harga_nameset' => $this->harga_nameset,
+            'liga_id' => $this->liga,
+            'is_ready' => $this->is_ready,
+            // 'berat' => $this->berat / 1000,
+            'gambar' => $file_path
+        ]);
+
+        return redirect('/admin');
     }
 
     public function render()
